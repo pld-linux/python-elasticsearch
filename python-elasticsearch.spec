@@ -1,8 +1,12 @@
+#
+# Conditional build:
+%bcond_with	tests	# do not perform "make test"
+
 %define 	module	elasticsearch
 Summary:	Client for Elasticsearch
 Name:		python-%{module}
 Version:	1.0.0
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/source/e/elasticsearch/elasticsearch-%{version}.tar.gz
@@ -11,7 +15,9 @@ URL:		https://github.com/elasticsearch/elasticsearch-py
 BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python-thrift
+%if %{with tests}
+BuildRequires:	python-thrift >= 0.9.1
+%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
