@@ -6,7 +6,7 @@
 Summary:	Client for Elasticsearch
 Name:		python-%{module}
 Version:	1.0.0
-Release:	2
+Release:	3
 License:	Apache v2.0
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/source/e/elasticsearch/elasticsearch-%{version}.tar.gz
